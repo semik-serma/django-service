@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER DIAVEL // SERVICES & 360° EXPERIENCE</title>
+    <meta name="description" content="Next-Generation 360° Interactive Experience & Professional Services - What Do We Do">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Light Orange / Amber Cyber Theme */
+            --accent-orange: #ff8c00;
+            --accent-orange-light: #ffa726;
+            --accent-orange-glow: rgba(255, 140, 0, 0.45);
+            --accent-orange-card: #ff7700;
+            --bg-dark: #0f1014;
+            --bg-services: #0c0d11;
+            --bg-bar: rgba(18, 20, 26, 0.92);
+            --card-surface: rgba(22, 25, 33, 0.85);
+            --text-white: #f5f6f8;
+            --text-dim: #9aa0a6;
+            --text-muted: #6b7280;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-orange: rgba(255, 140, 0, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation Header */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 76px;
+            padding: 0 40px 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(12, 13, 17, 0.92) 0%, rgba(12, 13, 17, 0) 100%);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled-deep {
+            background: rgba(12, 13, 17, 0.95);
+            border-bottom: 1px solid var(--border-subtle);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-hamburger {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 6px;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .nav-hamburger:hover span {
+            background: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-orange-light);
+        }
+
+        /* Center Brand Crest (Glowing Light Orange) */
+        .nav-center-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .brand-crest {
+            width: 44px;
+            height: 48px;
+            background: linear-gradient(145deg, var(--accent-orange), #d95700);
+            clip-path: polygon(50% 100%, 100% 75%, 100% 0, 0 0, 0 75%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px var(--accent-orange-glow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .brand-crest:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px var(--accent-orange);
+        }
+
+        .brand-crest span {
+            font-family: 'Cinzel', serif;
+            font-weight: 900;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-right-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-right-link:hover {
+            color: var(--accent-orange-light);
+        }
+
+        .nav-search-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .nav-search-btn:hover {
+            color: var(--accent-orange);
+        }
+
+        .nav-cart-btn {
+            width: 48px;
+            height: 76px;
+            background: var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.15rem;
+            text-decoration: none;
+            margin-right: -40px;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: -4px 0 20px rgba(255, 140, 0, 0.35);
+        }
+
+        .nav-cart-btn:hover {
+            background: #ff9800;
+            box-shadow: -4px 0 30px rgba(255, 152, 0, 0.7);
+        }
+
+        /* -------------------------------------------
+           SECTION 1: HERO PINNED 360 STAGE
+        ------------------------------------------- */
+        .hero-scroll-container {
+            height: 260vh;
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-sticky-frame {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at 60% 45%, #2a2019 0%, #151317 55%, #0d0d10 100%);
+            transition: opacity 0.4s ease;
+        }
+
+        .ambient-glow-center {
+            position: absolute;
+            top: 45%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            width: 75vw;
+            height: 75vh;
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.18) 0%, rgba(255, 110, 0, 0.06) 45%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .watermark-typography {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(7rem, 20vw, 22rem);
+            font-weight: 900;
+            letter-spacing: 0.18em;
+            color: rgba(255, 255, 255, 0.05);
+            text-transform: uppercase;
+            white-space: nowrap;
+            z-index: 2;
+            pointer-events: none;
+            text-shadow: 0 0 80px rgba(0, 0, 0, 0.8);
+        }
+
+        #frameCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 3;
+            cursor: grab;
+            pointer-events: auto;
+        }
+
+        #frameCanvas:active {
+            cursor: grabbing;
+        }
+
+        .left-social-rail {
+            position: absolute;
+            left: 36px;
+            top: 46%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            z-index: 90;
+        }
+
+        .social-rail-item {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .social-rail-item:hover {
+            color: var(--accent-orange);
+            transform: scale(1.2) translateX(3px);
+        }
+
+        .right-pagination-rail {
+            position: absolute;
+            right: 36px;
+            top: 46%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            z-index: 90;
+        }
+
+        .page-arrow {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: color 0.2s ease, transform 0.2s ease;
+            padding: 4px;
+        }
+
+        .page-arrow:hover {
+            color: var(--accent-orange);
+            transform: scale(1.3);
+        }
+
+        .page-num-active {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .page-num-divider {
+            width: 22px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 2px 0;
+        }
+
+        .page-num-total {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1;
+        }
+
+        .hero-text-block {
+            position: absolute;
+            top: 60%;
+            left: 110px;
+            transform: translateY(-50%);
+            z-index: 50;
+            max-width: 500px;
+            pointer-events: auto;
+        }
+
+        .hero-model-tag {
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.65);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .hero-main-title {
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .bottom-spec-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 124px;
+            background: var(--bg-bar);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: stretch;
+            z-index: 80;
+        }
+
+        .spec-tab-active {
+            width: 170px;
+            background: var(--accent-orange-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            cursor: pointer;
+            box-shadow: 4px 0 25px rgba(255, 119, 0, 0.4);
+            transition: background 0.3s ease;
+        }
+
+        .spec-tab-active:hover {
+            background: #ff8800;
+        }
+
+        .tab-chevron-up { font-size: 0.8rem; color: #fff; margin-bottom: 4px; }
+        .tab-model-name { font-size: 0.95rem; font-weight: 800; color: #ffffff; letter-spacing: 0.5px; text-align: center; }
+        .tab-chevron-down { font-size: 0.8rem; color: #fff; margin-top: 4px; }
+
+        .spec-columns-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            gap: 48px;
+        }
+
+        .spec-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .spec-label {
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .spec-value-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .spec-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-info-icon {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .spec-info-icon:hover { color: var(--accent-orange); }
+
+        .spec-subtext {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+            max-width: 240px;
+        }
+
+        .bottom-play-box {
+            width: 200px;
+            background: #0f1013;
+            border-left: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .bottom-play-box:hover { background: #181a20; }
+
+        .play-circle-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 1rem;
+            padding-left: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .bottom-play-box:hover .play-circle-btn {
+            transform: scale(1.15);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            box-shadow: 0 0 25px var(--accent-orange-glow);
+        }
+
+        .play-circle-btn.spinning {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            animation: spinGlow 2s infinite linear;
+        }
+
+        @keyframes spinGlow {
+            0% { transform: rotate(0deg); box-shadow: 0 0 15px var(--accent-orange-glow); }
+            50% { transform: rotate(180deg); box-shadow: 0 0 30px var(--accent-orange); }
+            100% { transform: rotate(360deg); box-shadow: 0 0 15px var(--accent-orange-glow); }
+        }
+
+        /* -------------------------------------------
+           SECTION 2: "WHAT DO WE DO" ORANGE SERVICES
+        ------------------------------------------- */
+        .section-services {
+            position: relative;
+            z-index: 100;
+            background: radial-gradient(circle at 50% 10%, #1e1308 0%, #0d0e12 60%, #090a0d 100%);
+            padding: 110px 48px 100px 48px;
+            border-top: 1px solid var(--border-orange);
+            box-shadow: 0 -30px 80px rgba(0, 0, 0, 0.9);
+        }
+
+        .services-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 70px auto;
+        }
+
+        .services-category-tag {
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-orange);
+            margin-bottom: 12px;
+            display: inline-block;
+            background: rgba(255, 140, 0, 0.1);
+            padding: 6px 18px;
+            border-radius: 20px;
+            border: 1px solid var(--border-orange);
+        }
+
+        .services-main-heading {
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-transform: none;
+        }
+
+        .services-lead-desc {
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            line-height: 1.65;
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .services-grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            max-width: 1240px;
+            margin: 0 auto;
+            border-radius: 24px;
+            background: var(--card-surface);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .service-column-card {
+            padding: 48px 36px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.35s ease;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            background: transparent;
+        }
+
+        .service-column-card:nth-child(3n) {
+            border-right: none;
+        }
+
+        .service-column-card:nth-child(n+4) {
+            border-bottom: none;
+        }
+
+        .service-column-card:hover {
+            background: rgba(255, 140, 0, 0.04);
+            transform: translateY(-4px);
+            box-shadow: inset 0 0 30px rgba(255, 140, 0, 0.06);
+        }
+
+        .service-number-badge {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+            line-height: 1;
+            text-shadow: 0 0 20px var(--accent-orange-glow);
+            transition: transform 0.3s ease;
+        }
+
+        .service-column-card:hover .service-number-badge {
+            transform: scale(1.15) translateX(4px);
+        }
+
+        .service-icon-wrap {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: rgba(255, 140, 0, 0.12);
+            border: 1px solid var(--border-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--accent-orange-light);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .service-column-card:hover .service-icon-wrap {
+            background: var(--accent-orange);
+            color: #ffffff;
+            box-shadow: 0 0 20px var(--accent-orange);
+        }
+
+        .service-title {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .service-description {
+            font-size: 0.94rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 22px;
+            flex: 1;
+        }
+
+        .service-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .service-pill-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 4px 10px;
+            color: var(--text-dim);
+            transition: all 0.2s ease;
+        }
+
+        .service-column-card:hover .service-pill-tag {
+            border-color: var(--border-orange);
+            color: #ffffff;
+        }
+
+        .services-cta-box {
+            max-width: 1240px;
+            margin: 60px auto 0 auto;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15) 0%, rgba(20, 24, 34, 0.9) 60%);
+            border: 1px solid var(--border-orange);
+            padding: 40px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+
+        .cta-content h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .cta-content p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+
+        .btn-instant-book {
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--accent-orange) 0%, #ff5722 100%);
+            border: none;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.45);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-instant-book:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 12px 35px rgba(255, 140, 0, 0.7);
+        }
+
+        .footer-bottom {
+            background: #08090c;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 36px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 100;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-link-item {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-link-item:hover { color: #ffffff; }
+
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0b0c0f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        #preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .preloader-brand {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .preloader-bar-wrap {
+            width: 280px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .preloader-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--accent-orange);
+            box-shadow: 0 0 12px var(--accent-orange);
+            transition: width 0.1s ease-out;
+        }
+
+        .preloader-text {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-family: 'Space Grotesk', monospace;
+            letter-spacing: 1px;
+        }
+
+        .toast-box {
+            position: fixed;
+            top: 90px;
+            right: 30px;
+            background: rgba(20, 22, 28, 0.95);
+            border: 1px solid var(--accent-orange);
+            border-radius: 8px;
+            padding: 14px 20px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .toast-box.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+            .navbar { padding: 0 20px; }
+            .nav-links, .nav-right-link { display: none; }
+            .hero-text-block { left: 50px; top: 52%; }
+            .spec-columns-wrap { gap: 24px; padding: 0 20px; }
+            .spec-subtext { display: none; }
+            .services-grid-container { grid-template-columns: repeat(2, 1fr); }
+            .service-column-card:nth-child(2n) { border-right: none; }
+            .service-column-card:nth-child(3n) { border-right: 1px solid rgba(255, 255, 255, 0.08); }
+            .service-column-card:nth-child(n+5) { border-bottom: none; }
+        }
+
+        @media (max-width: 768px) {
+            .left-social-rail { display: none; }
+            .hero-text-block { left: 24px; top: 40%; max-width: 90%; }
+            .hero-main-title { font-size: 2.2rem; }
+            .bottom-spec-bar { height: auto; flex-wrap: wrap; }
+            .spec-tab-active { width: 100%; height: 50px; flex-direction: row; gap: 12px; }
+            .spec-columns-wrap { width: 100%; padding: 16px; gap: 16px; justify-content: space-between; }
+            .bottom-play-box { width: 100%; height: 50px; }
+            .right-pagination-rail { right: 16px; }
+            .section-services { padding: 80px 20px; }
+            .services-grid-container { grid-template-columns: 1fr; }
+            .service-column-card { border-right: none !important; border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important; }
+            .services-cta-box { flex-direction: column; text-align: center; padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div id="preloader">
+        <div class="preloader-brand">CYBER SERVICES</div>
+        <div class="preloader-bar-wrap">
+            <div class="preloader-bar" id="loadBar"></div>
+        </div>
+        <div class="preloader-text" id="loadText">LOADING 360° ENGINE... 0%</div>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar" id="mainNav">
+        <div class="nav-left">
+            <button class="nav-hamburger" title="Menu" onclick="showToast('Navigation: Services & 360 Hub')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link">360° VIEW</a></li>
+                <li><a href="#services" class="nav-link">SERVICES <i class="fa-solid fa-chevron-down"></i></a></li>
+                <li><a href="#services" class="nav-link">WHAT WE DO</a></li>
+            </ul>
+        </div>
+
+        <!-- Center Brand Shield (Glowing Light Orange) -->
+        <a href="/" class="nav-center-brand">
+            <div class="brand-crest">
+                <span>CYBER</span>
+            </div>
+        </a>
+
+        <div class="nav-right">
+            <a href="#services" class="nav-right-link">OUR SERVICES</a>
+            <a href="javascript:void(0)" class="nav-right-link" onclick="showToast('Booking Hotline: +1 (800) 555-CYBER')">BOOK NOW</a>
+            <a href="javascript:void(0)" class="nav-right-link" onclick="showToast('Coverage: All City Sectors')">AREAS</a>
+            <button class="nav-search-btn" title="Search Services" onclick="showToast('Searching available technicians...')"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href="myproject/templates/account/login.html" class="nav-cart-btn" title="Client Sign In"><i class="fa-solid fa-user"></i></a>
+        </div>
+    </header>
+
+    <!-- ----------------------------------------------------
+         SECTION 1: HERO SCROLL-PINNED 360 STAGE
+    ----------------------------------------------------- -->
+    <div class="hero-scroll-container" id="hero">
+        <div class="hero-sticky-frame">
+            <!-- Ambient Glow -->
+            <div class="ambient-glow-center"></div>
+
+            <!-- Giant Background Watermark -->
+            <div class="watermark-typography" id="watermark">SERVICES</div>
+
+            <!-- Fullscreen Canvas for 240 Frames -->
+            <canvas id="frameCanvas"></canvas>
+
+            <!-- Left Social Rail -->
+            <aside class="left-social-rail">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer" class="social-rail-item" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noreferrer" class="social-rail-item" title="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" class="social-rail-item" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </aside>
+
+            <!-- Right Vertical Section Pagination (01 / 04) -->
+            <aside class="right-pagination-rail">
+                <div class="page-arrow" onclick="stepAngle(-20)" title="Previous View"><i class="fa-solid fa-chevron-up"></i></div>
+                <div class="page-num-active" id="activeQuadrant">01</div>
+                <div class="page-num-divider"></div>
+                <div class="page-num-total">04</div>
+                <div class="page-arrow" onclick="stepAngle(20)" title="Next View"><i class="fa-solid fa-chevron-down"></i></div>
+            </aside>
+
+            <!-- Hero Text (Left side: "DIAVEL 1260 S / SO GOOD TO BE BAD") -->
+            <div class="hero-text-block">
+                <span class="hero-model-tag">PROFESSIONAL REPAIR & TECH</span>
+                <h1 class="hero-main-title">SO GOOD TO BE BAD</h1>
+            </div>
+
+            <!-- Bottom Spec Bar / Dashboard -->
+            <div class="bottom-spec-bar">
+                <!-- Active Model Highlight Tab (Light Orange) -->
+                <div class="spec-tab-active" onclick="toggle360Spin()">
+                    <i class="fa-solid fa-chevron-up tab-chevron-up"></i>
+                    <span class="tab-model-name">Cyber Tech 1260</span>
+                    <i class="fa-solid fa-chevron-down tab-chevron-down"></i>
+                </div>
+
+                <!-- Specs Columns -->
+                <div class="spec-columns-wrap">
+                    <div class="spec-item">
+                        <span class="spec-label">RESPONSE TIME</span>
+                        <div class="spec-value-row">
+                            <span class="spec-value">&lt; 30 MIN</span>
+                            <i class="fa-solid fa-circle-info spec-info-icon" onclick="showToast('Average emergency technician arrival time')"></i>
+                        </div>
+                        <p class="spec-subtext">Rapid doorstep dispatch across all metropolitan zones</p>
+                    </div>
+
+                    <div class="spec-item">
+                        <span class="spec-label">TECH MASTERY</span>
+                        <div class="spec-value-row">
+                            <span class="spec-value">100% PRO</span>
+                            <i class="fa-solid fa-circle-info spec-info-icon" onclick="showToast('Certified master electricians, plumbers & engineers')"></i>
+                        </div>
+                        <p class="spec-subtext">Advanced diagnostics and precision instrumentation</p>
+                    </div>
+
+                    <div class="spec-item">
+                        <span class="spec-label">WARRANTY</span>
+                        <div class="spec-value-row">
+                            <span class="spec-value">12 MONTHS</span>
+                            <i class="fa-solid fa-circle-info spec-info-icon" onclick="showToast('Complete coverage on all replacement parts and labor')"></i>
+                        </div>
+                        <p class="spec-subtext">Guaranteed genuine parts with full service assurance</p>
+                    </div>
+                </div>
+
+                <!-- Bottom Right Circular Play Box (Auto 360 Spin) -->
+                <div class="bottom-play-box" id="playBtnBox" title="Click to Auto-Spin 360°" onclick="toggle360Spin()">
+                    <div class="play-circle-btn" id="playCircleIcon"><i class="fa-solid fa-play"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------------------------------------------------
+         SECTION 2: "WHAT DO WE DO" ORANGE SERVICES SECTION
+    ----------------------------------------------------- -->
+    <section class="section-services" id="services">
+        <div class="services-header">
+            <span class="services-category-tag">OUR SERVICES</span>
+            <h2 class="services-main-heading">What do we do</h2>
+            <p class="services-lead-desc">Any type of commercial or residential repair & technical maintenance. Any conditions, a personalized approach to each.</p>
+        </div>
+
+        <!-- Services 6-Card Grid Layout -->
+        <div class="services-grid-container">
+            <!-- Service 1: Plumbing -->
+            <div class="service-column-card">
+                <div class="service-number-badge">1</div>
+                <div class="service-icon-wrap"><i class="fa-solid fa-faucet-drip"></i></div>
+                <h3 class="service-title">Plumbing Repair</h3>
+                <p class="service-description">Complete residential and commercial plumbing. Emergency leak isolation, high-pressure pipe clearing, drain unclogging, faucet renewal, and water heater servicing.</p>
+                <div class="service-tags-row">
+                    <span class="service-pill-tag">Leak Detection</span>
+                    <span class="service-pill-tag">Pipe Fitting</span>
+                    <span class="service-pill-tag">Heater Setup</span>
+                </div>
+            </div>
+
+            <!-- Service 2: Washing Machines -->
+            <div class="service-column-card">
+                <div class="service-number-badge">2</div>
+                <div class="service-icon-wrap"><i class="fa-solid fa-soap"></i></div>
+                <h3 class="service-title">Washing Machines</h3>
+                <p class="service-description">Full diagnostics and repairs for top-load, front-load, and combo dryers. Drum balancing, drive belt fixes, drain pump unclogging, and digital motherboard repairs.</p>
+                <div class="service-tags-row">
+                    <span class="service-pill-tag">Motor Repairs</span>
+                    <span class="service-pill-tag">Pump Fixes</span>
+                    <span class="service-pill-tag">All Brands</span>
+                </div>
+            </div>
+
+            <!-- Service 3: Computers -->
+            <div class="service-column-card">
+                <div class="service-number-badge">3</div>
+                <div class="service-icon-wrap"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3 class="service-title">Repair Computers</h3>
+                <p class="service-description">Hardware diagnostics, component-level micro-soldering, motherboard repairs, SSD speed upgrades, thermal paste optimization, OS restores, and custom desktop builds.</p>
+                <div class="service-tags-row">
+                    <span class="service-pill-tag">Hardware Diagnostics</span>
+                    <span class="service-pill-tag">OS Tuning</span>
+                    <span class="service-pill-tag">Custom Builds</span>
+                </div>
+            </div>
+
+            <!-- Service 4: LED Bulbs & Smart Lighting -->
+            <div class="service-column-card">
+                <div class="service-number-badge">4</div>
+                <div class="service-icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+                <h3 class="service-title">LED Bulbs & Lighting</h3>
+                <p class="service-description">Energy-efficient LED bulb conversion, recessed architectural lighting installation, chandelier wiring, dimmer switches, and smart ambient home lighting ecosystems.</p>
+                <div class="service-tags-row">
+                    <span class="service-pill-tag">LED Upgrades</span>
+                    <span class="service-pill-tag">Smart Home</span>
+                    <span class="service-pill-tag">Circuits</span>
+                </div>
+            </div>
+
+            <!-- Service 5: TV & Display Electronics -->
+            <div class="service-column-card">
+                <div class="service-number-badge">5</div>
+                <div class="service-icon-wrap"><i class="fa-solid fa-tv"></i></div>
+                <h3 class="service-title">TV & Display Repair</h3>
+                <p class="service-description">Precision repairs for 4K OLED, QLED, and Smart TVs. LED backlight array replacement, power supply unit fixes, HDMI port repairs, and professional heavy-duty wall mounting.</p>
+                <div class="service-tags-row">
+                    <span class="service-pill-tag">OLED / 4K Panels</span>
+                    <span class="service-pill-tag">Backlight Array</span>
+                    <span class="service-pill-tag">Wall Mount</span>
+                </div>
+            </div>
+
+            <!-- Service 6: 24/7 Rapid Dispatch -->
+            <div class="service-column-card">
+                <div class="service-number-badge">6</div>
+                <div class="service-icon-wrap"><i class="fa-solid fa-truck-fast"></i></div>
+                <h3 class="service-title">24/7 Rapid Dispatch</h3>
+                <p class="service-description">Instant emergency dispatch with verified, licensed technicians arriving equipped with original factory parts, diagnostic tools, and transparent upfront pricing.</p>
+                <div class="service-tags-row">
+                    <span class="service-pill-tag">Under 30 Min</span>
+                    <span class="service-pill-tag">1-Year Warranty</span>
+                    <span class="service-pill-tag">Genuine Parts</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instant Booking CTA Banner -->
+        <div class="services-cta-box">
+            <div class="cta-content">
+                <h3>Need Immediate Repair or Diagnostics?</h3>
+                <p>Our certified technicians are ready for rapid dispatch across your city sector right now.</p>
+            </div>
+            <a href="javascript:void(0)" class="btn-instant-book" onclick="showToast('🎉 Booking Portal Opened! A technician has been notified.')">
+                <span>Book Service Now</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bottom">
+        <p class="footer-copy">© 2026 CYBER DIAVEL // SERVICES & TECHNICAL SOLUTIONS. ALL RIGHTS RESERVED.</p>
+        <div class="footer-nav-links">
+            <a href="#hero" class="footer-link-item">Return to 360° Hero</a>
+            <a href="#services" class="footer-link-item">Services List</a>
+            <a href="myproject/templates/account/login.html" class="footer-link-item">Account Login</a>
+            <a href="javascript:void(0)" class="footer-link-item" onclick="showToast('Privacy & Service Terms: Active')">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-box" id="toast">Message</div>
+
+    <!-- Interactive Canvas & Smooth 360 Animation Script -->
+    <script>
+        const TOTAL_FRAMES = 240;
+        const frameImages = [];
+        let loadedFrames = 0;
+        let currentFrame = 1;
+        let targetFrame = 1;
+        let isSpinning = false;
+        let spinTimer = null;
+
+        const canvas = document.getElementById('frameCanvas');
+        const ctx = canvas.getContext('2d');
+        const loadBar = document.getElementById('loadBar');
+        const loadText = document.getElementById('loadText');
+        const preloader = document.getElementById('preloader');
+        const activeQuadrantEl = document.getElementById('activeQuadrant');
+        const playCircleIcon = document.getElementById('playCircleIcon');
+        const mainNav = document.getElementById('mainNav');
+
+        function getFrameSrc(idx) {
+            const pad = String(idx).padStart(3, '0');
+            return `static/frames/ezgif-frame-${pad}.png`;
+        }
+
+        function initPreload() {
+            for (let i = 1; i <= TOTAL_FRAMES; i++) {
+                const img = new Image();
+                img.src = getFrameSrc(i);
+
+                img.onload = () => {
+                    loadedFrames++;
+                    const pct = Math.floor((loadedFrames / TOTAL_FRAMES) * 100);
+                    loadBar.style.width = pct + '%';
+                    loadText.innerText = `LOADING 360° ENGINE... ${pct}%`;
+
+                    if (loadedFrames === 1) {
+                        resizeCanvas();
+                        drawFrame(1);
+                    }
+
+                    if (loadedFrames >= TOTAL_FRAMES) {
+                        setTimeout(() => {
+                            preloader.classList.add('loaded');
+                        }, 300);
+                    }
+                };
+
+                img.onerror = () => {
+                    img.src = `ezgif-5388d931b41ecb87-png-split/ezgif-frame-${String(i).padStart(3, '0')}.png`;
+                };
+
+                frameImages.push(img);
+            }
+        }
+
+        function resizeCanvas() {
+            const dpr = window.devicePixelRatio || 1;
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            canvas.style.width = w + 'px';
+            canvas.style.height = h + 'px';
+
+            ctx.scale(dpr, dpr);
+            drawFrame(Math.round(currentFrame));
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        function drawFrame(idx) {
+            const safeIdx = Math.max(1, Math.min(TOTAL_FRAMES, idx));
+            const img = frameImages[safeIdx - 1];
+            if (!img || !img.complete || img.naturalWidth === 0) return;
+
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+
+            ctx.clearRect(0, 0, w, h);
+
+            const imgRatio = img.naturalWidth / img.naturalHeight;
+            const screenRatio = w / h;
+
+            let dw, dh, dx, dy;
+
+            if (screenRatio > imgRatio) {
+                dw = w;
+                dh = w / imgRatio;
+            } else {
+                dh = h * 1.05;
+                dw = dh * imgRatio;
+            }
+
+            dx = (w - dw) / 2;
+            dy = (h - dh) / 2 - 15;
+
+            ctx.drawImage(img, dx, dy, dw, dh);
+
+            const quad = Math.min(4, Math.max(1, Math.ceil((safeIdx / TOTAL_FRAMES) * 4)));
+            activeQuadrantEl.innerText = `0${quad}`;
+        }
+
+        function onScroll() {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const heroContainer = document.getElementById('hero');
+            const heroHeight = heroContainer.offsetHeight - window.innerHeight;
+
+            if (heroHeight > 0 && !isSpinning) {
+                const progress = Math.max(0, Math.min(1, scrollY / heroHeight));
+                targetFrame = 1 + Math.floor(progress * (TOTAL_FRAMES - 1));
+            }
+
+            if (scrollY > 150) {
+                mainNav.classList.add('scrolled-deep');
+            } else {
+                mainNav.classList.remove('scrolled-deep');
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        function loop() {
+            if (!isSpinning) {
+                const diff = targetFrame - currentFrame;
+                if (Math.abs(diff) > 0.05) {
+                    currentFrame += diff * 0.16;
+                    drawFrame(Math.round(currentFrame));
+                }
+            }
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+
+        function stepAngle(step) {
+            let next = targetFrame + step;
+            if (next > TOTAL_FRAMES) next = 1;
+            if (next < 1) next = TOTAL_FRAMES;
+            targetFrame = next;
+            currentFrame = next;
+            drawFrame(next);
+        }
+
+        function toggle360Spin() {
+            isSpinning = !isSpinning;
+            if (isSpinning) {
+                playCircleIcon.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                playCircleIcon.classList.add('spinning');
+                showToast('360° Kinetic Spin: ACTIVATED');
+                spinTimer = setInterval(() => {
+                    currentFrame = (currentFrame % TOTAL_FRAMES) + 1;
+                    targetFrame = currentFrame;
+                    drawFrame(Math.round(currentFrame));
+                }, 30);
+            } else {
+                playCircleIcon.innerHTML = '<i class="fa-solid fa-play"></i>';
+                playCircleIcon.classList.remove('spinning');
+                clearInterval(spinTimer);
+                showToast('360° Kinetic Spin: PAUSED');
+            }
+        }
+
+        let isDragging = false;
+        let startX = 0;
+        let startF = 1;
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+            startF = currentFrame;
+            if (isSpinning) toggle360Spin();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.clientX - startX;
+            const frameDiff = Math.floor(deltaX * 0.45);
+            let next = (startF - frameDiff) % TOTAL_FRAMES;
+            if (next <= 0) next += TOTAL_FRAMES;
+            targetFrame = next;
+            currentFrame = next;
+            drawFrame(next);
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length === 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX;
+                startF = currentFrame;
+                if (isSpinning) toggle360Spin();
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging || e.touches.length !== 1) return;
+            const deltaX = e.touches[0].clientX - startX;
+            const frameDiff = Math.floor(deltaX * 0.45);
+            let next = (startF - frameDiff) % TOTAL_FRAMES;
+            if (next <= 0) next += TOTAL_FRAMES;
+            targetFrame = next;
+            currentFrame = next;
+            drawFrame(next);
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => { isDragging = false; });
+
+        let toastTimer = null;
+        function showToast(text) {
+            const toast = document.getElementById('toast');
+            toast.innerText = text;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') stepAngle(-6);
+            if (e.key === 'ArrowRight') stepAngle(6);
+            if (e.key === ' ') { e.preventDefault(); toggle360Spin(); }
+        });
+
+        initPreload();
+    </script>
+</body>
+</html>

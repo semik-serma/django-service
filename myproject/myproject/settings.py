@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,7 +49,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
     
     # Local apps
     'backend',
@@ -112,14 +113,17 @@ ACCOUNT_LOGIN_METHODS = {'email', 'username'}
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_QUERY_EMAIL = True
-
-
-
+ACCOUNT_LOGIN_REDIRECT_URL = LOGIN_REDIRECT_URL
+SOCIALACCOUNT_LOGIN_REDIRECT_URL = LOGIN_REDIRECT_URL
+SOCIALACCOUNT_AUTO_SIGNUP = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION = True
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+ACCOUNT_SIGNUP_FIELDS = ['email', 'username*', 'password1*', 'password2*']  # allauth < 65
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
-            'client_id': '',
-            'secret': '',
+            'client_id': os.getenv("GOOGLE_CLIENT_ID"),
+            'secret': os.getenv("GOOGLE_CLIENT_SECRET"),
             'key': ''
         },
         'SCOPE': [
@@ -130,17 +134,27 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
         }
     },
-    'github': {
-        'APP': {
-            'client_id': '',
-            'secret': '',
-            'key': ''
-        },
-        'SCOPE': [
-            'user',
-            'user:email',
-        ]
-    }
+       "facebook": {
+        "METHOD": "oauth2",
+        "APPS": [
+            {
+                    "client_id": os.getenv("FACEBOOK_CLIENT_ID"),
+                    "secret": os.getenv("FACEBOOK_CLIENT_SECRET"),
+                "key": "",
+            },
+        ],
+        "SCOPE": [
+            "email",
+            "public_profile",
+        ],
+        "FIELDS": [
+            "id",
+            "email",
+            "name",
+            "first_name",
+            "last_name",
+        ],
+    },
 }
 
 
@@ -179,6 +193,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 
-
-
+SOCIALACCOUNT_LOGIN_ON_GET = True
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
